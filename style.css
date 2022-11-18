@@ -16,19 +16,6 @@ body {
   background: #121214 var(--bg) no-repeat top center/cover;
 }
 
-body.yellow {
-  --card-color-primary: #f7dd43;
-  --card-title-border-color: #746615;
-  --card-bg-color: #1d1c19;
-  --bg: url(./assets/bg-yellow.svg);
-}
-body.green {
-  --card-color-primary: #047c3f;
-  --card-title-border-color: #047c3f;
-  --card-bg-color: #1a1f1b;
-  --bg: url(./assets/bg-green.svg);
-}
-
 body * {
   font-family: "Roboto", sans-serif;
 }
@@ -43,6 +30,54 @@ header {
   margin-bottom: 63px;
   text-align: center;
 }
+.colorSelector,
+.colorSelector ul {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.colorSelector ul {
+  gap: 2rem;
+  padding: 1rem;
+  width: 10rem;
+  box-shadow: 0 0 2rem rgb(0 0 0 / 0.6);
+  border-radius: 10px;
+}
+
+input[type="radio"] {
+  appearance: none;
+  border: 2px solid var(--input-color);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+}
+
+input[type="radio"]:checked {
+  background-color: var(--input-color);
+}
+#blue {
+  --input-color: rgb(31, 31, 193);
+  --card-color-primary: #338af3;
+  --card-title-border-color: #338af3;
+  --card-bg-color: #202024;
+  --bg: url(./assets/bg-blue.svg);
+}
+#green,
+:root:has(#green:checked) {
+  --input-color: rgb(2, 74, 2);
+  --card-color-primary: #047c3f;
+  --card-title-border-color: #047c3f;
+  --card-bg-color: #1a1f1b;
+  --bg: url(./assets/bg-green.svg);
+}
+#yellow,
+:root:has(#yellow:checked) {
+  --input-color: rgb(212, 192, 13);
+  --card-color-primary: #f7dd43;
+  --card-title-border-color: #746615;
+  --card-bg-color: #1d1c19;
+  --bg: url(./assets/bg-yellow.svg);
+}
 
 #cards {
   display: flex;
@@ -55,7 +90,7 @@ header {
 
   background: var(--card-bg-color);
   border-bottom: 2px solid var(--card-color-primary);
-  border-radius: 6px;
+  border-radius: 20px;
 }
 
 .card h2 {
@@ -88,6 +123,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  opacity: 0.5;
 }
 
 .card ul li strong {
@@ -103,10 +139,13 @@ header {
 }
 
 .card h2:hover,
+.card ul li:hover,
 .card ul li strong:hover,
+.card:hover,
 .card ul li img:hover {
   transform: scale(1.1);
-  transition: transform 0.2s;
+  transition: transform 0.1s;
+  opacity: 1;
 }
 
 .card {
